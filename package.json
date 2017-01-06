@@ -1,0 +1,33 @@
+{
+  "name": "@simeon/sym",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/sym.node.js",
+  "browser": "dist/sym.min.js",
+  "scripts": {
+    "build": "npm-run-all --parallel build:*",
+    "build:node": "rollup -c config/rollup.node.js",
+    "build:browser": "rollup -c config/rollup.browser.js",
+    "build:browser-min": "rollup -c config/rollup.browser-min.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svincent/sym.git"
+  },
+  "keywords": [],
+  "author": "Simeon Vincent <svincent@gmail.com> (https://svincent.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/svincent/sym/issues"
+  },
+  "homepage": "https://github.com/svincent/sym#readme",
+  "devDependencies": {
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "npm-run-all": "^4.0.0",
+    "rollup": "^0.40.0",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^7.0.0",
+    "rollup-plugin-uglify": "^1.0.1"
+  }
+}
