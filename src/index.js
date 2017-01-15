@@ -6,7 +6,10 @@ function Sym(key) {
     }
     return Symbol(key)
 }
+// Sym is a Symbol replacement -- as such it needs to have all of Symbol's
+// properties and it's prototype chain.
 Object.defineProperties(Sym, Object.getOwnPropertyDescriptors(Symbol))
+
 Sym.registry = function registry(key) {
   if (SymRegistry.has(key)) {
     return SymRegistry.get(key)
@@ -17,8 +20,6 @@ Sym.registry = function registry(key) {
   return reg
 }
 
-
-Sym.prototype = Object.create( Symbol.prototype )
 
 class SymbolRegistry {
   constructor(name) {
@@ -37,9 +38,8 @@ class SymbolRegistry {
 
   toString() {
     const length = [...this._map.keys()].length
-    return `SymbolRegistry(${this.name})[${length}]`
+    return `SymbolRegistry(${this._name})[${length}]`
   }
 }
-
 
 export default Sym
